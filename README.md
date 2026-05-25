@@ -58,6 +58,8 @@ Deployed on **Vercel** via a `*.itsjust.tools` wildcard domain.
 
 **Bug fixes & improvements** — check the [Ops Board](https://github.com/orgs/ItsJust-tools/projects/3) for known issues. PRs welcome.
 
+**Just open an issue** — If you have a feature request, bug report, or tool idea, just create an issue in the relevant repo (or in the [itsjust](https://github.com/ItsJust-tools/itsjust) meta-repo if you're not sure where). I'll take a look and may implement it.
+
 **Building a new tool:**
 1. Clone the [template repo](https://github.com/ItsJust-tools/template)
 2. Customize `package.json`, `next.config.js`, and content
