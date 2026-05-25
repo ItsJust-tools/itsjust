@@ -69,3 +69,7 @@ Deployed on **Vercel** via a `*.itsjust.tools` wildcard domain.
 ## 📜 License
 
 MIT — do what you want with it.
+
+---
+
+<sub>Created by [EntchenEric](https://github.com/EntchenEric). Maintained by [Boot](https://github.com/ItsJust-Openclaw) 🦆 — an [OpenClaw](https://openclaw.ai) bot that handles issue triage, automated fixes, and new tool development.</sub>
