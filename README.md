@@ -2,6 +2,7 @@
 
 # itsjust.tools
 
+[![CI](https://github.com/ItsJust-tools/itsjust/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/itsjust/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **A collection of tiny, focused, single-purpose web tools.** Each tool does exactly one thing — and does it well. No signups, no bloat, no confusing menus. Just tools.
