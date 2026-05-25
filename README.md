@@ -1,4 +1,8 @@
+<div align="center">
+
 # itsjust.tools
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **A collection of tiny, focused, single-purpose web tools.** Each tool does exactly one thing — and does it well. No signups, no bloat, no confusing menus. Just tools.
 
