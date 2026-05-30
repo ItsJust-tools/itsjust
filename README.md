@@ -10,6 +10,39 @@
 
 </div>
 
+## ✨ Features
+
+- **🔒 Privacy-first** — Everything runs client-side. Your data never leaves your browser.
+- **⚡ Instant loading** — Zero unnecessary JavaScript, no frameworks beyond the minimal build setup.
+- **♿ Accessible** — Keyboard navigation, screen-reader support, and WCAG-compliant contrast.
+- **🌙 Dark mode** — Every tool supports light and dark themes with system preference detection.
+- **📱 Responsive** — Works on every screen size, from phone to desktop.
+- **🔗 Shareable state** — Tools can encode their full state in URLs for easy sharing.
+- **📦 No signup** — No accounts, no logins, no paywalls. Just open and use.
+
+## 🚀 Quick Start
+
+```bash
+# Clone a tool repo (using template as base)
+git clone https://github.com/ItsJust-tools/template.git my-tool
+cd my-tool
+
+# Install dependencies
+npm install
+
+# Start developing
+npm run dev
+# → opens http://localhost:3000
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+```
+
+See the [template repo](https://github.com/ItsJust-tools/template) for full setup instructions.
+
 ## 📋 Tools
 
 All tools live under `*.itsjust.tools`:
@@ -63,6 +96,29 @@ No frameworks. No bloat. Just tools.
 
 The full list of tools is maintained in this README. Each tool is a standalone Next.js application deployed on Vercel via a `*.itsjust.tools` wildcard domain.
 
+## 🗺️ Usage
+
+### For End Users
+
+Each tool is a standalone web app at `*.itsjust.tools`. Just visit the URL and start using it:
+
+1. **Open** the tool's URL (e.g., [password-generator.itsjust.tools](https://password-generator.itsjust.tools))
+2. **Use it** — no signup, no accounts, no data collection
+3. **Export/Share** — many tools let you download results or share via URL
+
+All processing happens in your browser. Nothing is sent to a server.
+
+### For Developers
+
+Each tool can be run locally from its repository:
+
+```bash
+git clone https://github.com/ItsJust-tools/<tool-name>.git
+cd <tool-name>
+npm install
+npm run dev
+```
+
 ## 🏗️ Stack
 
 Each tool uses the [template](https://github.com/ItsJust-tools/template) as a starting point:
@@ -107,6 +163,74 @@ Each repository has its own CI pipeline running on GitHub Actions:
 | Template | [![CI](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml) |
 | Vision Deficiency Simulator | [![CI](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml) |
 
+## 🛠️ Development
+
+### Prerequisites
+
+- **Node.js** >= 22.0.0
+- **npm** >= 10.0.0
+
+### Setting Up a New Tool
+
+1. Click **"Use this template"** on the [template repo](https://github.com/ItsJust-tools/template)
+2. Clone your new repo:
+   ```bash
+   git clone https://github.com/ItsJust-tools/your-tool.git
+   cd your-tool
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Customize the tool config in `src/tool/tool.config.ts`
+5. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000)
+
+### Code Style
+
+- **TypeScript** strict mode is enabled throughout
+- **ESLint** for linting — run `npm run lint`
+- **Prettier** for formatting — run `npm run format`
+
+### Testing
+
+- **Unit tests:** [Vitest](https://vitest.dev) — `npm test`
+- **E2E tests:** [Playwright](https://playwright.dev) — `npm run test:e2e`
+- Tests live in `__tests__/` at the repo root
+
+### Preflight Checklist
+
+Before opening a PR, run:
+
+```bash
+node scripts/preflight.mjs   # Validate template setup
+npm run lint                  # TypeScript + ESLint
+npm test                      # Unit tests
+npm run build                 # Production build
+```
+
+### Continuous Integration
+
+Every push to `main` and every PR triggers the CI pipeline with four stages:
+
+1. **Lint & Type Check** — ESLint + TypeScript compilation
+2. **Test** — Vitest unit tests
+3. **Documentation** — validates markdown links and code fence language tags
+4. **Tool Audit** — ensures all tools are referenced in the README
+
+### Deployment
+
+Tools are deployed to [Vercel](https://vercel.com) using a `*.itsjust.tools` wildcard domain:
+
+```bash
+npx vercel --prod
+```
+
+Set `NEXT_PUBLIC_URL` in your Vercel project settings.
+
 ## 🤝 Contributing
 
 ### 🛠️ Building a New Tool
@@ -127,26 +251,6 @@ Check the [Roadmap Board](https://github.com/orgs/ItsJust-tools/projects/2) for 
 ### 📝 Just Open an Issue
 
 If you have a feature request, bug report, or tool idea, just create an issue in the relevant repo (or in this meta-repo if you're not sure where).
-
-### 🏠 Local Development
-
-```bash
-# Clone the template
-git clone https://github.com/ItsJust-tools/template.git my-tool
-cd my-tool
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Run tests
-npm test
-
-# Build for production
-npm run build
-```
 
 ## 📜 License
 
