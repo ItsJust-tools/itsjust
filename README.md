@@ -47,39 +47,37 @@ See the [template repo](https://github.com/ItsJust-tools/template) for full setu
 
 All tools live under `*.itsjust.tools`:
 
-| Tool | Description | Live |
-| ---- | ----------- | ---- |
-| **Blob Generator** | Generate organic SVG blob shapes | [blob.itsjust.tools](https://blob.itsjust.tools) |
-| **Calculator** | Scientific calculator for the web | [calculator.itsjust.tools](https://calculator.itsjust.tools) |
-| **Calendar** | Clean monthly calendar view and event tracking | [calendar.itsjust.tools](https://calendar.itsjust.tools) |
-| **Color Picker** | Pick, save, and export colors | [color-picker.itsjust.tools](https://color-picker.itsjust.tools) |
-| **Config Converter** | Convert between YAML, JSON, and TOML formats | [config-converter.itsjust.tools](https://config-converter.itsjust.tools) |
-| **Contrast Checker** | WCAG contrast ratio checker for accessible design | [contrast-checker.itsjust.tools](https://contrast-checker.itsjust.tools) |
-| **Countdown** | Countdown timers for events and deadlines | [countdown.itsjust.tools](https://countdown.itsjust.tools) |
-| **Cron Expression Builder** | Build and validate cron expressions visually | [cron.itsjust.tools](https://cron.itsjust.tools) |
-| **CSS Filter Visualizer** | Visualize and chain CSS filters in real time | [css-filter-visualizer.itsjust.tools](https://css-filter-visualizer.itsjust.tools) |
-| **Data URI Builder** | Build and encode data URIs from files or text | [data-uri-builder.itsjust.tools](https://data-uri-builder.itsjust.tools) |
-| **Diff Viewer** | Compare text differences side-by-side | [diff-viewer.itsjust.tools](https://diff-viewer.itsjust.tools) |
-| **Equation Editor** | Write and render mathematical equations | [equation.itsjust.tools](https://equation.itsjust.tools) |
-| **Gitignore Generator** | Generate `.gitignore` files for your project | [gitignore-generator.itsjust.tools](https://gitignore-generator.itsjust.tools) |
-| **JSON Formatter** | Format, validate, and explore JSON | [json-formatter.itsjust.tools](https://json-formatter.itsjust.tools) |
-| **Landing** | This site's landing page | [itsjust.tools](https://itsjust.tools) |
-| **Notepad** | Distraction-free plain text editor | [notepad.itsjust.tools](https://notepad.itsjust.tools) |
-| **Password Generator** | Generate strong, customizable passwords | [password-generator.itsjust.tools](https://password-generator.itsjust.tools) |
-| **QR Code Generator** | Client-side QR codes, no data ever leaves your browser | [qr-code.itsjust.tools](https://qr-code.itsjust.tools) |
-| **SQL Formatter** | Format, beautify, and lint SQL queries | [sql-formatter.itsjust.tools](https://sql-formatter.itsjust.tools) |
-| **SVG Editor** | Edit SVGs with a live preview | [svg-editor.itsjust.tools](https://svg-editor.itsjust.tools) |
-| **System Config Builder** | Build Docker Compose, NGINX, WireGuard configs visually | [system-config-builder.itsjust.tools](https://system-config-builder.itsjust.tools) |
-| **Systemd Unit Builder** | Visual tool for building systemd unit files | [systemd-builder.itsjust.tools](https://systemd-builder.itsjust.tools) |
-| **Vision Deficiency Simulator** | See your UI through different vision types | [vision-deficiency-simulator.itsjust.tools](https://vision-deficiency-simulator.itsjust.tools) |
+### 🛠️ End-User Tools
+
+- **[Blob Generator](https://blob.itsjust.tools)** — Generate organic SVG blob shapes
+- **[Calculator](https://calculator.itsjust.tools)** — Scientific calculator for the web
+- **[Calendar](https://calendar.itsjust.tools)** — Clean monthly calendar view and event tracking
+- **[Color Picker](https://color-picker.itsjust.tools)** — Pick, save, and export colors
+- **[Config Converter](https://config-converter.itsjust.tools)** — Convert between YAML, JSON, and TOML formats
+- **[Contrast Checker](https://contrast-checker.itsjust.tools)** — WCAG contrast ratio checker for accessible design
+- **[Countdown](https://countdown.itsjust.tools)** — Countdown timers for events and deadlines
+- **[Cron Expression Builder](https://cron.itsjust.tools)** — Build and validate cron expressions visually
+- **[CSS Filter Visualizer](https://css-filter-visualizer.itsjust.tools)** — Visualize and chain CSS filters in real time
+- **[Data URI Builder](https://data-uri-builder.itsjust.tools)** — Build and encode data URIs from files or text
+- **[Diff Viewer](https://diff-viewer.itsjust.tools)** — Compare text differences side-by-side
+- **[Equation Editor](https://equation.itsjust.tools)** — Write and render mathematical equations
+- **[Gitignore Generator](https://gitignore-generator.itsjust.tools)** — Generate `.gitignore` files for your project
+- **[JSON Formatter](https://json-formatter.itsjust.tools)** — Format, validate, and explore JSON
+- **[Landing](https://itsjust.tools)** — This site's landing page
+- **[Notepad](https://notepad.itsjust.tools)** — Distraction-free plain text editor
+- **[Password Generator](https://password-generator.itsjust.tools)** — Generate strong, customizable passwords
+- **[QR Code Generator](https://qr-code.itsjust.tools)** — Client-side QR codes, no data ever leaves your browser
+- **[SQL Formatter](https://sql-formatter.itsjust.tools)** — Format, beautify, and lint SQL queries
+- **[SVG Editor](https://svg-editor.itsjust.tools)** — Edit SVGs with a live preview
+- **[System Config Builder](https://system-config-builder.itsjust.tools)** — Build Docker Compose, NGINX, WireGuard configs visually
+- **[Systemd Unit Builder](https://systemd-builder.itsjust.tools)** — Visual tool for building systemd unit files
+- **[Vision Deficiency Simulator](https://vision-deficiency-simulator.itsjust.tools)** — See your UI through different vision types
 
 ### 🏗️ Internal / Template
 
-| Repository | Description |
-| ---------- | ----------- |
-| **[Template](https://github.com/ItsJust-tools/template)** | Starter repo for building new tools |
-| **[itsjust](https://github.com/ItsJust-tools/itsjust)** | This meta-repo — documentation and org coordination |
-| **[.github](https://github.com/ItsJust-tools/.github)** | Organization profile and community health files |
+- **[Template](https://github.com/ItsJust-tools/template)** — Starter repo for building new tools
+- **[itsjust](https://github.com/ItsJust-tools/itsjust)** — This meta-repo — documentation and org coordination
+- **[.github](https://github.com/ItsJust-tools/.github)** — Organization profile and community health files
 
 > **Note:** The `timezone-converter.itsjust.tools` domain points to a planned tool that hasn't been built yet. If you'd like to build it, see [Contributing](#-contributing).
 
@@ -137,31 +135,29 @@ Tools that need shared components use the **`@itsjust/core`** workspace package 
 
 Each repository has its own CI pipeline running on GitHub Actions:
 
-| Tool | CI Status |
-| ---- | --------- |
-| Blob Generator | [![CI](https://github.com/ItsJust-tools/blob-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/blob-generator/actions/workflows/ci.yml) |
-| Calculator | [![CI](https://github.com/ItsJust-tools/calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/calculator/actions/workflows/ci.yml) |
-| Calendar | [![CI](https://github.com/ItsJust-tools/calendar/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/calendar/actions/workflows/ci.yml) |
-| Color Picker | [![CI](https://github.com/ItsJust-tools/color-picker/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/color-picker/actions/workflows/ci.yml) |
-| Config Converter | [![CI](https://github.com/ItsJust-tools/config-converter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/config-converter/actions/workflows/ci.yml) |
-| Contrast Checker | [![CI](https://github.com/ItsJust-tools/contrast-checker/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/contrast-checker/actions/workflows/ci.yml) |
-| Countdown | [![CI](https://github.com/ItsJust-tools/countdown/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/countdown/actions/workflows/ci.yml) |
-| Cron | [![CI](https://github.com/ItsJust-tools/cron/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/cron/actions/workflows/ci.yml) |
-| CSS Filter Visualizer | [![CI](https://github.com/ItsJust-tools/css-filter-visualizer/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/css-filter-visualizer/actions/workflows/ci.yml) |
-| Data URI Builder | [![CI](https://github.com/ItsJust-tools/data-uri-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/data-uri-builder/actions/workflows/ci.yml) |
-| Diff Viewer | [![CI](https://github.com/ItsJust-tools/diff-viewer/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/diff-viewer/actions/workflows/ci.yml) |
-| Equation | [![CI](https://github.com/ItsJust-tools/Equation/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/Equation/actions/workflows/ci.yml) |
-| Gitignore Generator | [![CI](https://github.com/ItsJust-tools/gitignore-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/gitignore-generator/actions/workflows/ci.yml) |
-| JSON Formatter | [![CI](https://github.com/ItsJust-tools/json-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/json-formatter/actions/workflows/ci.yml) |
-| Notepad | [![CI](https://github.com/ItsJust-tools/Notepad/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/Notepad/actions/workflows/ci.yml) |
-| Password Generator | [![CI](https://github.com/ItsJust-tools/password-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/password-generator/actions/workflows/ci.yml) |
-| QR Code | [![CI](https://github.com/ItsJust-tools/qr-code/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/qr-code/actions/workflows/ci.yml) |
-| SQL Formatter | [![CI](https://github.com/ItsJust-tools/sql-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/sql-formatter/actions/workflows/ci.yml) |
-| SVG Editor | [![CI](https://github.com/ItsJust-tools/svg-editor/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/svg-editor/actions/workflows/ci.yml) |
-| System Config Builder | [![CI](https://github.com/ItsJust-tools/system-config-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/system-config-builder/actions/workflows/ci.yml) |
-| Systemd Builder | [![CI](https://github.com/ItsJust-tools/systemd-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/systemd-builder/actions/workflows/ci.yml) |
-| Template | [![CI](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml) |
-| Vision Deficiency Simulator | [![CI](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml) |
+- **Blob Generator** [![CI](https://github.com/ItsJust-tools/blob-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/blob-generator/actions/workflows/ci.yml)
+- **Calculator** [![CI](https://github.com/ItsJust-tools/calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/calculator/actions/workflows/ci.yml)
+- **Calendar** [![CI](https://github.com/ItsJust-tools/calendar/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/calendar/actions/workflows/ci.yml)
+- **Color Picker** [![CI](https://github.com/ItsJust-tools/color-picker/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/color-picker/actions/workflows/ci.yml)
+- **Config Converter** [![CI](https://github.com/ItsJust-tools/config-converter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/config-converter/actions/workflows/ci.yml)
+- **Contrast Checker** [![CI](https://github.com/ItsJust-tools/contrast-checker/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/contrast-checker/actions/workflows/ci.yml)
+- **Countdown** [![CI](https://github.com/ItsJust-tools/countdown/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/countdown/actions/workflows/ci.yml)
+- **Cron** [![CI](https://github.com/ItsJust-tools/cron/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/cron/actions/workflows/ci.yml)
+- **CSS Filter Visualizer** [![CI](https://github.com/ItsJust-tools/css-filter-visualizer/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/css-filter-visualizer/actions/workflows/ci.yml)
+- **Data URI Builder** [![CI](https://github.com/ItsJust-tools/data-uri-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/data-uri-builder/actions/workflows/ci.yml)
+- **Diff Viewer** [![CI](https://github.com/ItsJust-tools/diff-viewer/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/diff-viewer/actions/workflows/ci.yml)
+- **Equation** [![CI](https://github.com/ItsJust-tools/Equation/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/Equation/actions/workflows/ci.yml)
+- **Gitignore Generator** [![CI](https://github.com/ItsJust-tools/gitignore-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/gitignore-generator/actions/workflows/ci.yml)
+- **JSON Formatter** [![CI](https://github.com/ItsJust-tools/json-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/json-formatter/actions/workflows/ci.yml)
+- **Notepad** [![CI](https://github.com/ItsJust-tools/Notepad/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/Notepad/actions/workflows/ci.yml)
+- **Password Generator** [![CI](https://github.com/ItsJust-tools/password-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/password-generator/actions/workflows/ci.yml)
+- **QR Code** [![CI](https://github.com/ItsJust-tools/qr-code/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/qr-code/actions/workflows/ci.yml)
+- **SQL Formatter** [![CI](https://github.com/ItsJust-tools/sql-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/sql-formatter/actions/workflows/ci.yml)
+- **SVG Editor** [![CI](https://github.com/ItsJust-tools/svg-editor/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/svg-editor/actions/workflows/ci.yml)
+- **System Config Builder** [![CI](https://github.com/ItsJust-tools/system-config-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/system-config-builder/actions/workflows/ci.yml)
+- **Systemd Builder** [![CI](https://github.com/ItsJust-tools/systemd-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/systemd-builder/actions/workflows/ci.yml)
+- **Template** [![CI](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml)
+- **Vision Deficiency Simulator** [![CI](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml)
 
 ## 🛠️ Development
 
