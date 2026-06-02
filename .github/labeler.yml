@@ -7,6 +7,9 @@
 .github/*:
   - ci-cd
 
+__tests__/*:
+  - testing
+
 README.md:
   - documentation
 

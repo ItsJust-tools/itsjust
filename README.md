@@ -188,31 +188,31 @@ Each repository has its own CI pipeline running on GitHub Actions:
 ### Code Style
 
 - **TypeScript** strict mode is enabled throughout
-- **ESLint** for linting — run `npm run lint`
-- **Prettier** for formatting — run `npm run format`
+- **Prettier** for formatting — edit `.prettierrc` at the repo root
+- This meta-repo focuses on documentation and org files; individual tools each have their own lint setup (see each tool repo for details)
 
 ### Testing
 
 - **Unit tests:** [Vitest](https://vitest.dev) — `npm test`
-- **E2E tests:** [Playwright](https://playwright.dev) — `npm run test:e2e`
 - Tests live in `__tests__/` at the repo root
+- Individual tool repos may include Playwright E2E tests
 
 ### Preflight Checklist
 
-Before opening a PR, run:
+Before opening a PR in this meta-repo, run:
 
 ```bash
-node scripts/preflight.mjs   # Validate template setup
-npm run lint                  # TypeScript + ESLint
-npm test                      # Unit tests
-npm run build                 # Production build
+npm run typecheck            # TypeScript type check
+npm test                     # Unit tests
 ```
+
+For changes to individual tools, follow the preflight in that tool's repository.
 
 ### Continuous Integration
 
 Every push to `main` and every PR triggers the CI pipeline with four stages:
 
-1. **Lint & Type Check** — ESLint + TypeScript compilation
+1. **Lint & Type Check** — TypeScript type checking
 2. **Test** — Vitest unit tests
 3. **Documentation** — validates markdown links and code fence language tags
 4. **Tool Audit** — ensures all tools are referenced in the README

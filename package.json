@@ -15,7 +15,9 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "echo 'No lint config yet'",
+    "lint": "echo 'No ESLint config in this meta-repo; individual tools have their own lint setup.'",
+    "format": "npx prettier --check .",
+    "format:fix": "npx prettier --write .",
     "typecheck": "npx tsc --noEmit"
   },
   "devDependencies": {
