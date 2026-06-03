@@ -1,23 +1,23 @@
 # Auto-label configuration for PR Labeler
 # See https://github.com/actions/labeler
 
-.github/workflows/*:
+'.github/workflows/*':
   - ci-cd
 
-.github/*:
+'.github/*':
   - ci-cd
 
-__tests__/*:
+'__tests__/**/*':
   - testing
 
-README.md:
+'README.md':
   - documentation
 
-*.md:
+'*.md':
   - documentation
 
-package.json:
+'package.json':
   - dependencies
 
-package-lock.json:
+'package-lock.json':
   - dependencies

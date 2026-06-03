@@ -10,6 +10,19 @@
 
 </div>
 
+## 📑 Table of Contents
+
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Tools](#-tools)
+- [Philosophy](#-philosophy)
+- [Usage](#-usage)
+- [Stack](#-stack)
+- [CI\/CD Status](#-cicd-status)
+- [Development](#-development)
+- [Contributing](#-contributing)
+- [License](#-license)
+
 ## ✨ Features
 
 - **🔒 Privacy-first** — Everything runs client-side. Your data never leaves your browser.
@@ -84,6 +97,7 @@ All tools live under `*.itsjust.tools`:
 ## 🧠 Philosophy
 
 Each tool should be:
+
 - **Single-purpose** — does one thing, does it well
 - **Client-side first** — your data stays on your machine
 - **No signup** — no accounts, no logins, no paywalls
@@ -120,6 +134,7 @@ npm run dev
 ## 🏗️ Stack
 
 Each tool uses the [template](https://github.com/ItsJust-tools/template) as a starting point:
+
 - **[Next.js](https://nextjs.org)** — routing and static export
 - **[TypeScript](https://www.typescriptlang.org)** — type safety
 - **[Tailwind CSS](https://tailwindcss.com)** — utility-first styling
@@ -132,6 +147,8 @@ Each tool uses the [template](https://github.com/ItsJust-tools/template) as a st
 Tools that need shared components use the **`@itsjust/core`** workspace package (built with [tsup](https://tsup.egoist.dev/)) for shared UI components and utilities. See any tool with a `packages/` directory for the workspace setup.
 
 ## 🚦 CI/CD Status
+
+> **Note:** The tools below are the individual repositories. Each has its own CI pipeline. The meta-repo badge is at the top of the page.
 
 Each repository has its own CI pipeline running on GitHub Actions:
 

@@ -113,21 +113,41 @@ describe('CI/CD badges', () => {
   const readme = fs.readFileSync(readmePath, 'utf-8');
 
   it('includes the CI badge for itsjust', () => {
-    expect(readme).toContain('https://github.com/ItsJust-tools/itsjust/actions/workflows/ci.yml/badge.svg');
+    expect(readme).toContain(
+      'https://github.com/ItsJust-tools/itsjust/actions/workflows/ci.yml/badge.svg',
+    );
   });
 
   it('includes all tool CI badges', () => {
     const tools = [
-      'blob-generator', 'calculator', 'calendar', 'color-picker',
-      'config-converter', 'contrast-checker', 'countdown', 'cron',
-      'css-filter-visualizer', 'data-uri-builder', 'diff-viewer',
-      'Equation', 'gitignore-generator', 'json-formatter',
-      'Notepad', 'password-generator', 'qr-code', 'sql-formatter',
-      'svg-editor', 'system-config-builder', 'systemd-builder',
-      'template', 'vision-deficiency-simulator',
+      'blob-generator',
+      'calculator',
+      'calendar',
+      'color-picker',
+      'config-converter',
+      'contrast-checker',
+      'countdown',
+      'cron',
+      'css-filter-visualizer',
+      'data-uri-builder',
+      'diff-viewer',
+      'Equation',
+      'gitignore-generator',
+      'json-formatter',
+      'Notepad',
+      'password-generator',
+      'qr-code',
+      'sql-formatter',
+      'svg-editor',
+      'system-config-builder',
+      'systemd-builder',
+      'template',
+      'vision-deficiency-simulator',
     ];
     for (const tool of tools) {
-      expect(readme).toContain(`https://github.com/ItsJust-tools/${tool}/actions/workflows/ci.yml/badge.svg`);
+      expect(readme).toContain(
+        `https://github.com/ItsJust-tools/${tool}/actions/workflows/ci.yml/badge.svg`,
+      );
     }
   });
 });
