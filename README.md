@@ -84,6 +84,7 @@ All tools live under `*.itsjust.tools`:
 - **[SVG Editor](https://svg-editor.itsjust.tools)** — Edit SVGs with a live preview
 - **[System Config Builder](https://system-config-builder.itsjust.tools)** — Build Docker Compose, NGINX, WireGuard configs visually
 - **[Systemd Unit Builder](https://systemd-builder.itsjust.tools)** — Visual tool for building systemd unit files
+- **[Text Case Converter](https://text-case-converter.itsjust.tools)** — Convert text between case formats (camelCase, snake_case, kebab-case, and more)
 - **[Vision Deficiency Simulator](https://vision-deficiency-simulator.itsjust.tools)** — See your UI through different vision types
 
 ### 🏗️ Internal / Template
@@ -174,6 +175,7 @@ Each repository has its own CI pipeline running on GitHub Actions:
 - **System Config Builder** [![CI](https://github.com/ItsJust-tools/system-config-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/system-config-builder/actions/workflows/ci.yml)
 - **Systemd Builder** [![CI](https://github.com/ItsJust-tools/systemd-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/systemd-builder/actions/workflows/ci.yml)
 - **Template** [![CI](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/template/actions/workflows/ci.yml)
+- **Text Case Converter** [![CI](https://github.com/ItsJust-tools/text-case-converter/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/text-case-converter/actions/workflows/ci.yml)
 - **Vision Deficiency Simulator** [![CI](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml/badge.svg)](https://github.com/ItsJust-tools/vision-deficiency-simulator/actions/workflows/ci.yml)
 
 ## 🛠️ Development

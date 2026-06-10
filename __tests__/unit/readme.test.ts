@@ -142,6 +142,7 @@ describe('CI/CD badges', () => {
       'system-config-builder',
       'systemd-builder',
       'template',
+      'text-case-converter',
       'vision-deficiency-simulator',
     ];
     for (const tool of tools) {
