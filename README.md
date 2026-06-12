@@ -62,6 +62,7 @@ All tools live under `*.itsjust.tools`:
 
 ### 🛠️ End-User Tools
 
+- **[Landing](https://github.com/ItsJust-tools/landing)** — Org landing page at [itsjust.tools](https://itsjust.tools)
 - **[Blob Generator](https://blob.itsjust.tools)** — Generate organic SVG blob shapes
 - **[Calculator](https://calculator.itsjust.tools)** — Scientific calculator for the web
 - **[Calendar](https://calendar.itsjust.tools)** — Clean monthly calendar view and event tracking
