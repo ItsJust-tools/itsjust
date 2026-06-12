@@ -9,7 +9,11 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "ignoreDeprecations": "6.0"
   },
-  "include": ["__tests__/**/*.ts", "vitest.config.ts"]
+  "include": [
+    "__tests__/**/*.ts",
+    "vitest.config.ts"
+  ]
 }
