@@ -130,7 +130,7 @@ jobs:
               'Equation', 'gitignore-generator', 'json-formatter', 'landing',
               'Notepad', 'password-generator', 'qr-code', 'sql-formatter',
               'svg-editor', 'system-config-builder', 'systemd-builder',
-              'template', 'vision-deficiency-simulator', 'itsjust', '.github'
+              'template', 'text-case-converter', 'vision-deficiency-simulator', 'itsjust', '.github'
             ]);
             const readme = require('fs').readFileSync('README.md', 'utf-8');
             const errors = [];
