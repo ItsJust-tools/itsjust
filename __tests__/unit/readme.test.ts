@@ -31,6 +31,15 @@ describe('README.md', () => {
   it('references the template repo', () => {
     expect(readme).toMatch(/template/i);
   });
+
+  it('documents the Clipboard API graceful fallback', () => {
+    expect(readme).toMatch(/clipboard/i);
+    expect(readme).toMatch(/navigator\.clipboard\.writeText/);
+    expect(readme).toMatch(/document\.execCommand\(['"]copy['"]\)/);
+    expect(readme).toMatch(/isSecureContext/);
+    expect(readme).toMatch(/textarea/);
+    expect(readme).toMatch(/off-screen/);
+  });
 });
 
 describe('package.json', () => {

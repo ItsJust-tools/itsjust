@@ -148,6 +148,53 @@ Each tool uses the [template](https://github.com/ItsJust-tools/template) as a st
 
 Tools that need shared components use the **`@itsjust/core`** workspace package (built with [tsup](https://tsup.egoist.dev/)) for shared UI components and utilities. See any tool with a `packages/` directory for the workspace setup.
 
+### Clipboard: Graceful fallback for insecure origins and permission rejections
+
+Calling `navigator.clipboard.writeText(...)` directly will reject when a tool is loaded in an unauthenticated iframe, over plain HTTP (e.g. local staging), or when the browser's clipboard permission is denied by policy. Without a fallback, copying formatted code, URLs, or output fails silently or throws an uncaught promise rejection.
+
+The shared `copyText` utility (in `packages/core/src/utils/copy-text.ts`) wraps the modern Clipboard API and falls back to the legacy `document.execCommand("copy")` path via an off-screen `<textarea>` whenever the modern API is unavailable or rejects:
+
+```ts
+async function copyText(text: string): Promise<boolean> {
+  // 1. Prefer the modern async Clipboard API when available.
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Fall through to the legacy path on rejection (e.g. permission denied).
+    }
+  }
+
+  // 2. Legacy fallback: execCommand("copy") on an off-screen textarea.
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.top = '-9999px'; // keep it off-screen so the page doesn't jump
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, textarea.value.length);
+  let ok = false;
+  try {
+    ok = document.execCommand('copy');
+  } catch {
+    ok = false;
+  } finally {
+    document.body.removeChild(textarea);
+  }
+  return ok;
+}
+```
+
+Key points:
+
+- **Check `window.isSecureContext`** before calling the modern API — it is only available on secure origins (HTTPS or `localhost`).
+- **Always `try/catch`** the modern call; permission rejections surface as rejected promises and must not become uncaught rejections.
+- The fallback textarea is **off-screen** (`position: fixed; top: -9999px`) so the page does not scroll or flash, and it is **removed** in a `finally` block.
+- `document.execCommand('copy')` returns a boolean; treat `false` as a copy failure and surface it to the user (e.g. via the hook's `error` state) rather than failing silently.
+- This pattern keeps copy operations working on insecure origins, inside unauthenticated iframes, and under restrictive clipboard policies.
+
 ## 🚦 CI/CD Status
 
 > **Note:** The tools below are the individual repositories. Each has its own CI pipeline. The meta-repo badge is at the top of the page.
