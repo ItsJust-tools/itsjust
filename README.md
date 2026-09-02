@@ -148,6 +148,55 @@ Each tool uses the [template](https://github.com/ItsJust-tools/template) as a st
 
 Tools that need shared components use the **`@itsjust/core`** workspace package (built with [tsup](https://tsup.egoist.dev/)) for shared UI components and utilities. See any tool with a `packages/` directory for the workspace setup.
 
+### LocalStorage persistence: handle quota and private-browsing restrictions defensively
+
+Saving large states or rapid undo history to `localStorage`/`sessionStorage` can throw `DOMException: QuotaExceededError` (low disk space, full quota) or `SecurityError` (Private/Incognito mode, blocked third-party storage, or `localStorage` disabled by policy). Unhandled, these exceptions break the application state flow or freeze the UI.
+
+The shared `storage` utility (in `packages/core/src/utils/storage.ts`) wraps every `setItem`/`removeItem` call in a defensive `try/catch` and reports failures through a non-intrusive warning toast instead of throwing:
+
+```ts
+// packages/core/src/utils/storage.ts
+import { toast } from '../ui/toast';
+
+const STORAGE_UNAVAILABLE = 'Storage is unavailable in this browser (e.g. private/incognito mode).';
+const STORAGE_QUOTA = 'Storage quota exceeded — could not save your data.';
+
+function isQuotaError(err: unknown): boolean {
+  return (
+    err instanceof DOMException &&
+    (err.name === 'QuotaExceededError' || err.name === 'SecurityError')
+  );
+}
+
+export function storageSet(storage: Storage, key: string, value: string): boolean {
+  try {
+    storage.setItem(key, value);
+    return true;
+  } catch (err) {
+    // QuotaExceededError / SecurityError must never bubble up and break the app.
+    toast.warn(isQuotaError(err) ? STORAGE_QUOTA : STORAGE_UNAVAILABLE);
+    return false;
+  }
+}
+
+export function storageRemove(storage: Storage, key: string): void {
+  try {
+    storage.removeItem(key);
+  } catch {
+    // Removal is best-effort; ignore failures silently.
+  }
+}
+```
+
+Key points:
+
+- **Always `try/catch`** `setItem` and `removeItem` — quota and security errors surface as synchronous `DOMException`s and must never propagate into the state flow.
+- **Detect quota vs. availability** by checking `err.name` (`QuotaExceededError` vs. `SecurityError`) so the toast message is accurate.
+- **Emit a non-intrusive warning toast** (never a blocking alert) when a write fails, so the user knows their data was not persisted without freezing the UI.
+- **Return a boolean** from the write helper so callers can degrade gracefully (e.g. keep state in memory only) when persistence is unavailable.
+- **Prefer `sessionStorage` for transient undo history** and `localStorage` only for durable settings, keeping each key small to stay well under the ~5 MB per-origin quota.
+- **Wrap reads too** (`getItem`/`JSON.parse`) — a corrupted or oversized stored value should be treated as absent, not crash the tool.
+
 ## 🚦 CI/CD Status
 
 > **Note:** The tools below are the individual repositories. Each has its own CI pipeline. The meta-repo badge is at the top of the page.
