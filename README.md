@@ -148,6 +148,8 @@ Each tool uses the [template](https://github.com/ItsJust-tools/template) as a st
 
 Tools that need shared components use the **`@itsjust/core`** workspace package (built with [tsup](https://tsup.egoist.dev/)) for shared UI components and utilities. See any tool with a `packages/` directory for the workspace setup.
 
+The shared `useShare` hook (in `packages/core/src/hooks/use-share.ts`) provides client-side sharing via download, clipboard, and the native **Web Share API** (`navigator.share`). When a user dismisses the native share sheet or taps "Cancel", the browser rejects with a `DOMException` named `AbortError`. This is an **expected user action**, so `useShare` catches and suppresses it — it is not surfaced as an error and does not trigger global error handlers. Any other sharing failure is still reported to the user via the hook's `error` state.
+
 ## 🚦 CI/CD Status
 
 > **Note:** The tools below are the individual repositories. Each has its own CI pipeline. The meta-repo badge is at the top of the page.
