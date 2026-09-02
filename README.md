@@ -211,6 +211,32 @@ Each repository has its own CI pipeline running on GitHub Actions:
 - **Prettier** for formatting — edit `.prettierrc` at the repo root
 - This meta-repo focuses on documentation and org files; individual tools each have their own lint setup (see each tool repo for details)
 
+### Accessibility (WCAG 2.2 AAA)
+
+Every tool must be usable by keyboard and screen-reader users. A core requirement is a **"Skip to main content" bypass link** so keyboard users can jump straight to the primary canvas/input controls instead of tabbing through the entire header/nav on every page load.
+
+Add a visually hidden skip link as the first focusable element in the app layout, and attach `id="main-content"` to the tool canvas wrapper:
+
+```tsx
+<a
+  href="#main-content"
+  className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:shadow-lg"
+>
+  Skip to content
+</a>
+
+<main id="main-content">
+  {/* tool canvas / input controls */}
+</main>
+```
+
+Key points:
+
+- The link is visually hidden (`sr-only`) until it receives keyboard focus (`focus:not-sr-only`), so it never clutters the visual layout.
+- It must be the **first** focusable element in the DOM, before the header/nav.
+- The target `#main-content` must be the wrapper around the primary canvas/input controls.
+- This satisfies WCAG 2.2 Success Criterion 2.4.1 (Bypass Blocks) at the AAA level.
+
 ### Testing
 
 - **Unit tests:** [Vitest](https://vitest.dev) — `npm test`

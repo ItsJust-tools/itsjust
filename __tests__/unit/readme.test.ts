@@ -31,6 +31,16 @@ describe('README.md', () => {
   it('references the template repo', () => {
     expect(readme).toMatch(/template/i);
   });
+
+  it('documents the Skip to Main Content bypass link (WCAG 2.2 AAA)', () => {
+    expect(readme).toMatch(/skip to main content/i);
+    expect(readme).toMatch(/bypass link/i);
+    expect(readme).toContain('href="#main-content"');
+    expect(readme).toContain('id="main-content"');
+    expect(readme).toMatch(/sr-only/);
+    expect(readme).toMatch(/focus:not-sr-only/);
+    expect(readme).toMatch(/2\.4\.1/i);
+  });
 });
 
 describe('package.json', () => {
