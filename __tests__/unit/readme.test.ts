@@ -31,6 +31,16 @@ describe('README.md', () => {
   it('references the template repo', () => {
     expect(readme).toMatch(/template/i);
   });
+
+  it('documents defensive LocalStorage persistence handling', () => {
+    expect(readme).toMatch(/localStorage/i);
+    expect(readme).toMatch(/sessionStorage/i);
+    expect(readme).toMatch(/QuotaExceededError/);
+    expect(readme).toMatch(/SecurityError/);
+    expect(readme).toMatch(/try\/catch/);
+    expect(readme).toMatch(/toast/);
+    expect(readme).toMatch(/private\/incognito/i);
+  });
 });
 
 describe('package.json', () => {
