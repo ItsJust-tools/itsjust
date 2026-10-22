@@ -1,23 +1,24 @@
-# Auto-label configuration for PR Labeler
+# Auto-label configuration for PR Labeler (actions/labeler@v5+ schema)
 # See https://github.com/actions/labeler
 
-'.github/workflows/*':
-  - ci-cd
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/*'
+          - '.github/*'
 
-'.github/*':
-  - ci-cd
+testing:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '__tests__/**/*'
 
-'__tests__/**/*':
-  - testing
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.md'
 
-'README.md':
-  - documentation
-
-'*.md':
-  - documentation
-
-'package.json':
-  - dependencies
-
-'package-lock.json':
-  - dependencies
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'package.json'
+          - 'package-lock.json'
