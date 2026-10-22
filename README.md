@@ -197,6 +197,67 @@ Key points:
 - **Prefer `sessionStorage` for transient undo history** and `localStorage` only for durable settings, keeping each key small to stay well under the ~5 MB per-origin quota.
 - **Wrap reads too** (`getItem`/`JSON.parse`) — a corrupted or oversized stored value should be treated as absent, not crash the tool.
 
+### Clipboard: graceful fallback for insecure origins and permission rejections
+
+Calling `navigator.clipboard.writeText(...)` directly rejects when a tool is loaded over plain HTTP, in an unauthenticated iframe, or when clipboard permission is denied by policy. Without a fallback the copy action fails silently or produces an uncaught rejection.
+
+The shared `copyToClipboard` utility (in `packages/core/src/utils/clipboard.ts`) tries the modern Clipboard API first and falls back to `document.execCommand('copy')` on an off-screen `<textarea>`:
+
+```ts
+// packages/core/src/utils/clipboard.ts
+export function copyToClipboard(text: string): Promise<boolean> {
+  return new Promise((resolve) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => resolve(true))
+      .catch(() => resolve(fallbackToClipboard(text)));
+  });
+}
+```
+
+Key points:
+
+- **Always catch** the modern call — permission rejections are rejected promises and must not become uncaught rejections.
+- The fallback textarea is positioned off-screen (`position: fixed; left/top: -9999px`) so the page never scrolls or flashes, and it is removed from the DOM afterwards.
+- `document.execCommand('copy')` is deprecated but remains the only working path on insecure origins; keep it as a fallback rather than the primary route.
+- Return a boolean so the caller can surface a copy failure instead of failing silently.
+
+### Web Share API: suppress user-abort `AbortError`
+
+When a user dismisses the native share sheet, `navigator.share()` rejects with a `DOMException` named `AbortError`. That is an expected user action, not a failure.
+
+The shared `useShare` hook (in `packages/core/src/hooks/use-share.ts`) filters it out before setting error state:
+
+```ts
+// packages/core/src/hooks/use-share.ts
+if (!(err instanceof Error) || err.name !== 'AbortError') {
+  setError(/* real share failure */);
+}
+```
+
+Key points:
+
+- Check `err.name === 'AbortError'` and return early — do not show a toast, log an error, or trip a global error handler.
+- Any other rejection is a genuine failure and should still be reported through the hook's `error` state.
+
+### Accessibility (WCAG 2.2 AAA): skip link
+
+Every tool must be keyboard and screen-reader navigable. A **"Skip to content"** bypass link lets keyboard users jump straight to the primary canvas or input controls instead of tabbing through the whole header on every page.
+
+The link is the first focusable element in the app shell (`src/app/layout.tsx`) and is hidden until focused via the `skip-nav` class:
+
+```tsx
+// src/app/layout.tsx
+<body className="min-h-full flex flex-col">
+  <a href="#main-content" className="skip-nav">
+    Skip to content
+  </a>
+  {/* ... */}
+</body>
+```
+
+The tool's primary wrapper must carry `id="main-content"` as the jump target. This satisfies WCAG 2.2 Success Criterion 2.4.1 (Bypass Blocks).
+
 ## 🚦 CI/CD Status
 
 > **Note:** The tools below are the individual repositories. Each has its own CI pipeline. The meta-repo badge is at the top of the page.
