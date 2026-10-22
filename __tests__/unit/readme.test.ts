@@ -41,6 +41,27 @@ describe('README.md', () => {
     expect(readme).toMatch(/toast/);
     expect(readme).toMatch(/private\/incognito/i);
   });
+
+  it('documents the Clipboard API graceful fallback', () => {
+    expect(readme).toMatch(/clipboard/i);
+    expect(readme).toMatch(/navigator\.clipboard\.writeText/);
+    expect(readme).toMatch(/execCommand\(['"]copy['"]\)/);
+    expect(readme).toMatch(/textarea/);
+    expect(readme).toMatch(/off-screen/i);
+  });
+
+  it('documents suppression of user-abort AbortError in useShare', () => {
+    expect(readme).toMatch(/navigator\.share/);
+    expect(readme).toMatch(/AbortError/);
+    expect(readme).toMatch(/use-share\.ts/);
+  });
+
+  it('documents the Skip to content bypass link (WCAG 2.2 AAA)', () => {
+    expect(readme).toMatch(/skip to content/i);
+    expect(readme).toContain('href="#main-content"');
+    expect(readme).toMatch(/main-content/);
+    expect(readme).toMatch(/2\.4\.1/);
+  });
 });
 
 describe('package.json', () => {
