@@ -134,6 +134,19 @@ describe('CI configuration', () => {
     expect(fs.existsSync(stalePath)).toBe(true);
   });
 
+  it('cancels redundant stale workflow runs via a concurrency group', () => {
+    const stalePath = path.join(REPO_ROOT, '.github/workflows/stale.yml');
+    const stale = fs.readFileSync(stalePath, 'utf-8');
+
+    // A top-level concurrency block must pin a group and cancel superseded runs.
+    const concurrency = stale.match(/^concurrency:\n((?:[ \t]+.*\n?)+)/m);
+    expect(concurrency).not.toBeNull();
+
+    const block = concurrency?.[1] ?? '';
+    expect(block).toMatch(/^\s+group:\s*\S+/m);
+    expect(block).toMatch(/^\s+cancel-in-progress:\s*true\s*$/m);
+  });
+
   it('has Prettier config', () => {
     expect(fs.existsSync(path.join(REPO_ROOT, '.prettierrc'))).toBe(true);
   });

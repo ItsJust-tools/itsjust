@@ -5,6 +5,12 @@ on:
     - cron: '0 6 * * 1' # Every Monday at 06:00 UTC
   workflow_dispatch:
 
+# Cancel any in-flight stale sweep when a newer run is queued, so rapid manual
+# dispatches (and overlapping schedules) never run two sweeps at once.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   stale:
     name: Close Stale Issues & PRs
