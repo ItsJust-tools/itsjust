@@ -9,6 +9,16 @@ permissions:
   pull-requests: write
   contents: read
 
+# Cancel any in-flight labeling run when a newer one is queued for the same PR,
+# so rapid successive commits never leave parallel redundant runs behind.
+#
+# Scoped by pull request number: this workflow triggers on `pull_request_target`,
+# where `github.ref` is the BASE branch for every PR, so grouping on the ref alone
+# would make unrelated PRs cancel each other's labeling runs.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   label:
     name: Label PR
