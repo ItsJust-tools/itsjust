@@ -9,6 +9,15 @@ on:
 env:
   NODE_VERSION: '22'
 
+# Cancel any in-flight CI run when a newer commit arrives on the same ref, so
+# rapid successive pushes or PR updates never leave parallel redundant runs.
+#
+# `github.ref` is unique per branch/tag and per pull request (`refs/pull/N/merge`),
+# so unrelated branches and PRs never cancel each other's runs.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     name: Type Check
