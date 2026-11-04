@@ -301,8 +301,8 @@ Each repository has its own CI pipeline running on GitHub Actions:
 1. Click **"Use this template"** on the [template repo](https://github.com/ItsJust-tools/template)
 2. Clone your new repo:
    ```bash
-   git clone https://github.com/ItsJust-tools/your-tool.git
-   cd your-tool
+   git clone https://github.com/ItsJust-tools/<tool-name>.git
+   cd <tool-name>
    ```
 3. Install dependencies:
    ```bash
@@ -364,7 +364,7 @@ Set `NEXT_PUBLIC_URL` in your Vercel project settings.
 1. Clone the [template repo](https://github.com/ItsJust-tools/template)
 2. Customize `package.json`, `next.config.js`, and content
 3. Open a PR or push to a new repo under `ItsJust-tools`
-4. Deploy to `your-tool.itsjust.tools` on Vercel
+4. Deploy to `<tool-name>.itsjust.tools` on Vercel
 
 ### 🐛 Bug Fixes & Improvements
 
