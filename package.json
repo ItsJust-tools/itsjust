@@ -2,7 +2,7 @@
   "name": "itsjust",
   "version": "1.0.0",
   "private": true,
-  "description": "ItsJust — a collection of small, focused, single-purpose web tools.",
+  "description": "ItsJust \u2014 a collection of small, focused, single-purpose web tools.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
     "lint": "echo 'No ESLint config in this meta-repo; individual tools have their own lint setup.'",
     "format": "npx prettier --check .",
     "format:fix": "npx prettier --write .",
-    "typecheck": "npx tsc --noEmit"
+    "typecheck": "npx tsc --noEmit",
+    "build": "npm run typecheck && npm test",
+    "validate": "npm run lint && npm run format && npm run typecheck && npm test"
   },
   "devDependencies": {
     "@types/node": "^25.9.2",
